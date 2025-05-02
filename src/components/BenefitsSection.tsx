@@ -11,14 +11,12 @@ const BenefitsSection = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-in');
-          if (window.innerWidth > 768) {
-            entry.target.classList.remove('animate-fade-in');
-          }
+          observer.unobserve(entry.target); // Para não observar mais após a primeira animação
         }
       });
     }, { 
-      threshold: 0.2,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -20px 0px'
     });
     
     const section = sectionRef.current;
