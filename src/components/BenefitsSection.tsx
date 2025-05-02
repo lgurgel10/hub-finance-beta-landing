@@ -12,7 +12,8 @@ const BenefitsSection = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-in');
-          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove('animate-fade-in');
         }
       });
     }, { threshold: 0.1 });
@@ -40,17 +41,17 @@ const BenefitsSection = () => {
     {
       title: "Dashboard Completo",
       description: "Visualização gráfica intuitiva de receitas, despesas e fluxo de caixa em tempo real.",
-      icon: <PieChart className="h-6 w-6 text-mint-400" />
+      icon: <PieChart className="h-6 w-6 text-[oklch(69.6%_.17_162.48)]" />
     },
     {
       title: "Controle de Assinaturas",
       description: "Acompanhe todos os seus serviços recorrentes, com alertas de renovação e análise de gastos.",
-      icon: <ListCheck className="h-6 w-6 text-mint-400" />
+      icon: <ListCheck className="h-6 w-6 text-[oklch(69.6%_.17_162.48)]" />
     },
     {
       title: "Relatórios Detalhados",
       description: "Exporte relatórios customizados por período, categoria ou tags com apenas alguns cliques.",
-      icon: <BarChart className="h-6 w-6 text-mint-400" />
+      icon: <BarChart className="h-6 w-6 text-[oklch(69.6%_.17_162.48)]" />
     }
   ];
 
@@ -59,14 +60,14 @@ const BenefitsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Simplifique sua <span className="text-gradient">gestão financeira</span>
+            Simplifique sua <span className="bg-gradient-to-r from-[oklch(72.3%_.219_149.579)] to-[oklch(69.6%_.17_162.48)] bg-clip-text text-transparent">gestão financeira</span>
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto mb-8">
             Desenvolvido para tornar o controle financeiro acessível e eficiente, seja para uso pessoal ou empresarial.
           </p>
           <Button 
             onClick={scrollToPlans} 
-            className="bg-mint-500 hover:bg-mint-600 text-white group transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-mint-500/20"
+            className="bg-[oklch(.696_.17_162.48)] hover:bg-[oklch(59.6%_.145_163.225)] text-white group transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[oklch(.696_.17_162.48)]/20"
           >
             Ver planos
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -77,7 +78,7 @@ const BenefitsSection = () => {
           {benefits.map((benefit, index) => (
             <Card 
               key={index} 
-              className="bg-dark-500/50 border border-mint-500/10 p-6 hover:border-mint-500/30 transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-dark-500/50 border border-[oklch(69.6%_.17_162.48)]/10 p-6 hover:border-[oklch(69.6%_.17_162.48)]/30 transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="h-12 w-12 rounded-lg bg-dark-400 flex items-center justify-center mb-4">
                 {benefit.icon}

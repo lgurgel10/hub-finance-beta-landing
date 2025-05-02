@@ -5,26 +5,40 @@ import { ArrowRight } from 'lucide-react';
 
 const FeatureShowcase = () => {
   const sectionRef = useRef(null);
+  const feature1Ref = useRef(null);
+  const feature2Ref = useRef(null);
+  const feature3Ref = useRef(null);
 
   useEffect(() => {
+    const observerOptions = { 
+      threshold: 0.1,
+      rootMargin: '-50px'
+    };
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-in');
-          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove('animate-fade-in');
         }
       });
-    }, { threshold: 0.1 });
+    }, observerOptions);
     
-    const section = sectionRef.current;
-    if (section) {
-      observer.observe(section);
-    }
+    const elements = [sectionRef.current, feature1Ref.current, feature2Ref.current, feature3Ref.current];
+    
+    elements.forEach(element => {
+      if (element) {
+        observer.observe(element);
+      }
+    });
     
     return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
+      elements.forEach(element => {
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
     };
   }, []);
 
@@ -49,13 +63,13 @@ const FeatureShowcase = () => {
 
         <div className="space-y-24">
           {/* Dashboard Feature */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div ref={feature1Ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center opacity-0 transform translate-y-4 transition-all duration-700">
             <div>
               <h3 className="text-2xl font-bold mb-4">Dashboard personalizado para suas necessidades</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-mint-500/20 flex items-center justify-center">
-                    <div className="h-2 w-2 rounded-full bg-mint-500"></div>
+                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-[oklch(69.6%_.17_162.48)]/20 flex items-center justify-center">
+                    <div className="h-2 w-2 rounded-full bg-[oklch(69.6%_.17_162.48)]"></div>
                   </div>
                   <div>
                     <p className="font-medium">Visão geral financeira em tempo real</p>
@@ -63,8 +77,8 @@ const FeatureShowcase = () => {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-mint-500/20 flex items-center justify-center">
-                    <div className="h-2 w-2 rounded-full bg-mint-500"></div>
+                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-[oklch(69.6%_.17_162.48)]/20 flex items-center justify-center">
+                    <div className="h-2 w-2 rounded-full bg-[oklch(69.6%_.17_162.48)]"></div>
                   </div>
                   <div>
                     <p className="font-medium">Gráficos personalizáveis</p>
@@ -72,8 +86,8 @@ const FeatureShowcase = () => {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-mint-500/20 flex items-center justify-center">
-                    <div className="h-2 w-2 rounded-full bg-mint-500"></div>
+                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-[oklch(69.6%_.17_162.48)]/20 flex items-center justify-center">
+                    <div className="h-2 w-2 rounded-full bg-[oklch(69.6%_.17_162.48)]"></div>
                   </div>
                   <div>
                     <p className="font-medium">Metas financeiras</p>
@@ -83,11 +97,11 @@ const FeatureShowcase = () => {
               </ul>
             </div>
             <div className="relative">
-              <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-mint-500 to-mint-300 opacity-30 blur-sm"></div>
-              <div className="relative bg-dark-600 border border-mint-500/30 rounded-xl p-1 overflow-hidden">
+              <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[oklch(69.6%_.17_162.48)] to-[oklch(72.3%_.219_149.579)] opacity-30 blur-sm"></div>
+              <div className="relative bg-dark-600 border border-[oklch(69.6%_.17_162.48)]/30 rounded-xl p-1 overflow-hidden">
                 <div className="bg-dark-500 rounded-lg p-4 h-[340px] overflow-hidden">
                   <div className="h-full w-full bg-dark-400 rounded-md flex items-center justify-center">
-                    <p className="text-mint-400">Dashboard</p>
+                    <p className="text-[oklch(69.6%_.17_162.48)]">Dashboard</p>
                   </div>
                 </div>
               </div>
@@ -95,13 +109,13 @@ const FeatureShowcase = () => {
           </div>
 
           {/* Assinaturas Feature */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div ref={feature2Ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center opacity-0 transform translate-y-4 transition-all duration-700">
             <div className="order-2 lg:order-1 relative">
-              <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-mint-500 to-mint-300 opacity-30 blur-sm"></div>
-              <div className="relative bg-dark-600 border border-mint-500/30 rounded-xl p-1 overflow-hidden">
+              <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[oklch(69.6%_.17_162.48)] to-[oklch(72.3%_.219_149.579)] opacity-30 blur-sm"></div>
+              <div className="relative bg-dark-600 border border-[oklch(69.6%_.17_162.48)]/30 rounded-xl p-1 overflow-hidden">
                 <div className="bg-dark-500 rounded-lg p-4 h-[340px] overflow-hidden">
                   <div className="h-full w-full bg-dark-400 rounded-md flex items-center justify-center">
-                    <p className="text-mint-400">Gestão de Assinaturas</p>
+                    <p className="text-[oklch(69.6%_.17_162.48)]">Gestão de Assinaturas</p>
                   </div>
                 </div>
               </div>
@@ -110,8 +124,8 @@ const FeatureShowcase = () => {
               <h3 className="text-2xl font-bold mb-4">Controle total de assinaturas e serviços recorrentes</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-mint-500/20 flex items-center justify-center">
-                    <div className="h-2 w-2 rounded-full bg-mint-500"></div>
+                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-[oklch(69.6%_.17_162.48)]/20 flex items-center justify-center">
+                    <div className="h-2 w-2 rounded-full bg-[oklch(69.6%_.17_162.48)]"></div>
                   </div>
                   <div>
                     <p className="font-medium">Monitore múltiplas assinaturas</p>
@@ -119,8 +133,8 @@ const FeatureShowcase = () => {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-mint-500/20 flex items-center justify-center">
-                    <div className="h-2 w-2 rounded-full bg-mint-500"></div>
+                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-[oklch(69.6%_.17_162.48)]/20 flex items-center justify-center">
+                    <div className="h-2 w-2 rounded-full bg-[oklch(69.6%_.17_162.48)]"></div>
                   </div>
                   <div>
                     <p className="font-medium">Alertas de renovação</p>
@@ -128,8 +142,8 @@ const FeatureShowcase = () => {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-mint-500/20 flex items-center justify-center">
-                    <div className="h-2 w-2 rounded-full bg-mint-500"></div>
+                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-[oklch(69.6%_.17_162.48)]/20 flex items-center justify-center">
+                    <div className="h-2 w-2 rounded-full bg-[oklch(69.6%_.17_162.48)]"></div>
                   </div>
                   <div>
                     <p className="font-medium">Relatórios categorizados</p>
@@ -141,13 +155,13 @@ const FeatureShowcase = () => {
           </div>
 
           {/* Colaboração Feature */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div ref={feature3Ref} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center opacity-0 transform translate-y-4 transition-all duration-700">
             <div>
               <h3 className="text-2xl font-bold mb-4">Colaboração simplificada para equipes e famílias</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-mint-500/20 flex items-center justify-center">
-                    <div className="h-2 w-2 rounded-full bg-mint-500"></div>
+                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-[oklch(69.6%_.17_162.48)]/20 flex items-center justify-center">
+                    <div className="h-2 w-2 rounded-full bg-[oklch(69.6%_.17_162.48)]"></div>
                   </div>
                   <div>
                     <p className="font-medium">Múltiplos workspaces</p>
@@ -155,8 +169,8 @@ const FeatureShowcase = () => {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-mint-500/20 flex items-center justify-center">
-                    <div className="h-2 w-2 rounded-full bg-mint-500"></div>
+                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-[oklch(69.6%_.17_162.48)]/20 flex items-center justify-center">
+                    <div className="h-2 w-2 rounded-full bg-[oklch(69.6%_.17_162.48)]"></div>
                   </div>
                   <div>
                     <p className="font-medium">Convites para membros</p>
@@ -164,8 +178,8 @@ const FeatureShowcase = () => {
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-mint-500/20 flex items-center justify-center">
-                    <div className="h-2 w-2 rounded-full bg-mint-500"></div>
+                  <div className="mr-3 mt-1 h-5 w-5 rounded-full bg-[oklch(69.6%_.17_162.48)]/20 flex items-center justify-center">
+                    <div className="h-2 w-2 rounded-full bg-[oklch(69.6%_.17_162.48)]"></div>
                   </div>
                   <div>
                     <p className="font-medium">Rastreamento de atividades</p>
@@ -175,11 +189,11 @@ const FeatureShowcase = () => {
               </ul>
             </div>
             <div className="relative">
-              <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-mint-500 to-mint-300 opacity-30 blur-sm"></div>
-              <div className="relative bg-dark-600 border border-mint-500/30 rounded-xl p-1 overflow-hidden">
+              <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[oklch(69.6%_.17_162.48)] to-[oklch(72.3%_.219_149.579)] opacity-30 blur-sm"></div>
+              <div className="relative bg-dark-600 border border-[oklch(69.6%_.17_162.48)]/30 rounded-xl p-1 overflow-hidden">
                 <div className="bg-dark-500 rounded-lg p-4 h-[340px] overflow-hidden">
                   <div className="h-full w-full bg-dark-400 rounded-md flex items-center justify-center">
-                    <p className="text-mint-400">Colaboração</p>
+                    <p className="text-[oklch(69.6%_.17_162.48)]">Colaboração</p>
                   </div>
                 </div>
               </div>
@@ -190,7 +204,7 @@ const FeatureShowcase = () => {
         <div className="mt-16 flex justify-center">
           <Button 
             onClick={scrollToPlans}
-            className="bg-mint-500 hover:bg-mint-600 text-white group transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-mint-500/20 px-6 py-6 text-lg"
+            className="bg-[oklch(.696_.17_162.48)] hover:bg-[oklch(59.6%_.145_163.225)] text-white group transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[oklch(.696_.17_162.48)]/20 px-6 py-6 text-lg"
           >
             Ver planos e preços
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

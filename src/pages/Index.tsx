@@ -7,7 +7,6 @@ import FeatureShowcase from '@/components/FeatureShowcase';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import PricingSection from '@/components/PricingSection';
 import FaqSection from '@/components/FaqSection';
-import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
 import SignupForm from '@/components/SignupForm';
 
@@ -21,6 +20,8 @@ const Index = () => {
         const windowHeight = window.innerHeight;
         if (sectionTop < windowHeight * 0.75) {
           section.classList.add('animate-fade-in');
+        } else {
+          section.classList.remove('animate-fade-in');
         }
       });
     };
@@ -42,7 +43,6 @@ const Index = () => {
         <TestimonialsSection />
         <PricingSection />
         <FaqSection />
-        <CtaSection />
         {/* O SignupForm está oculto aqui mas acessível via ID para scrolling */}
         <div className="hidden">
           <SignupForm />

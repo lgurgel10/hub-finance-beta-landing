@@ -1,6 +1,42 @@
-import React from 'react';
+
+import React, { useRef, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+
 const TestimonialsSection = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        } else {
+          entry.target.classList.remove('animate-fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const section = sectionRef.current;
+    if (section) {
+      observer.observe(section);
+    }
+    
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
+
+  const scrollToPlans = () => {
+    const section = document.getElementById('planos');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const testimonials = [{
     quote: "O GranaHub revolucionou minha forma de gerenciar finanças. O sistema de assinaturas salvou muito dinheiro!",
     author: "Marcos Silva",
@@ -17,17 +53,20 @@ const TestimonialsSection = () => {
     role: "CFO",
     company: "Startup Inova"
   }];
-  return <div className="py-20 bg-dark-600">
+
+  return (
+    <div ref={sectionRef} className="py-20 bg-dark-600 opacity-0 transform translate-y-4 transition-all duration-700">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            O que nossos <span className="text-gradient">usuários dizem</span>
+            Clientes que <span className="text-gradient">mudaram</span> suas vidas ao organizar suas finanças
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">Veja como o GranaHub está ajudando pessoas reais a organizar, acompanhar e dominar sua vida financeira com clareza.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => <Card key={index} className="bg-dark-500/50 border border-mint-500/10 p-6 flex flex-col">
+          {testimonials.map((testimonial, index) => (
+            <Card key={index} className="bg-dark-500/50 border border-mint-500/10 p-6 flex flex-col">
               <div className="flex-grow">
                 <div className="mb-4 text-4xl text-mint-500/30">"</div>
                 <p className="italic text-gray-300 mb-6">{testimonial.quote}</p>
@@ -36,9 +75,22 @@ const TestimonialsSection = () => {
                 <p className="font-medium">{testimonial.author}</p>
                 <p className="text-sm text-gray-400">{testimonial.role}, {testimonial.company}</p>
               </div>
-            </Card>)}
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Button 
+            onClick={scrollToPlans} 
+            className="bg-[oklch(.696_.17_162.48)] hover:bg-[oklch(59.6%_.145_163.225)] text-white group transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[oklch(.696_.17_162.48)]/20 px-6 py-6 text-lg"
+          >
+            Ver planos disponíveis
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default TestimonialsSection;
