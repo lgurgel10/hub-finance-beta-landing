@@ -1,36 +1,63 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from './Logo';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
-  const scrollToForm = () => {
-    const form = document.getElementById('signup-form');
-    if (form) {
-      form.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="fixed top-0 w-full z-50 backdrop-blur-sm bg-dark-700/80 border-b border-mint-500/10">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Logo />
-        <div className="hidden md:flex space-x-6">
-          <a href="#funcionalidades" className="text-gray-300 hover:text-mint-400 transition-colors">
-            Funcionalidades
-          </a>
-          <a href="#planos" className="text-gray-300 hover:text-mint-400 transition-colors">
-            Planos
-          </a>
-          <a href="#faq" className="text-gray-300 hover:text-mint-400 transition-colors">
-            FAQ
-          </a>
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <Logo />
+          <nav className="hidden md:flex items-center justify-center space-x-12 absolute left-1/2 transform -translate-x-1/2">
+            <a href="#funcionalidades" className="text-gray-300 hover:text-mint-400 transition-colors">
+              Funcionalidades
+            </a>
+            <a href="#planos" className="text-gray-300 hover:text-mint-400 transition-colors">
+              Planos
+            </a>
+            <a href="#faq" className="text-gray-300 hover:text-mint-400 transition-colors">
+              FAQ
+            </a>
+          </nav>
+          <button 
+            className="md:hidden text-gray-300 hover:text-mint-400 transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-        <Button onClick={scrollToForm} className="bg-mint-500 hover:bg-mint-600 text-white group transition-all duration-300 transform hover:scale-105">
-          Começar agora
-          <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-        </Button>
+
+        {/* Menu Mobile */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 py-4 border-t border-mint-500/10">
+            <div className="flex flex-col space-y-4">
+              <a 
+                href="#funcionalidades" 
+                className="text-gray-300 hover:text-mint-400 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Funcionalidades
+              </a>
+              <a 
+                href="#planos" 
+                className="text-gray-300 hover:text-mint-400 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Planos
+              </a>
+              <a 
+                href="#faq" 
+                className="text-gray-300 hover:text-mint-400 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                FAQ
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

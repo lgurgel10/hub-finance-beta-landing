@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 
 interface FeaturePointProps {
@@ -73,7 +72,7 @@ const FeatureCard = ({ title, points, image, imagePosition = 'right' }: FeatureC
     <div className="relative">
       <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[oklch(69.6%_.17_162.48)] to-[oklch(72.3%_.219_149.579)] opacity-30 blur-sm"></div>
       <div className="relative bg-dark-600 border border-[oklch(69.6%_.17_162.48)]/30 rounded-xl p-1 overflow-hidden">
-        <div className="bg-dark-500 rounded-lg p-4 h-[340px] overflow-hidden">
+        <div className="bg-dark-500 rounded-lg p-4 h-[280px] overflow-hidden">
           {image}
         </div>
       </div>

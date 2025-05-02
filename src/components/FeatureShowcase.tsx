@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 import FeatureCard from './features/FeatureCard';
 import FeatureSectionHeader from './features/FeatureSectionHeader';
@@ -55,7 +54,7 @@ const FeatureShowcase = () => {
           highlightedWord="poderosas"
         />
 
-        <div className="space-y-24">
+        <div className="space-y-24 max-w-5xl mx-auto">
           <FeatureCard 
             title="Dashboard personalizado para suas necessidades"
             points={[
@@ -121,7 +120,7 @@ const FeatureShowcase = () => {
           />
         </div>
 
-        <FeatureCTA label="Ver planos e preços" onClick={scrollToPlans} />
+        <FeatureCTA label="Quero utilizar" onClick={scrollToPlans} />
       </div>
     </div>
   );
