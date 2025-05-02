@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
-import { Check } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 
 const SignupForm = () => {
   const [name, setName] = useState('');
@@ -24,7 +24,7 @@ const SignupForm = () => {
       setSuccess(true);
       toast({
         title: "Cadastro realizado com sucesso!",
-        description: "Em breve entraremos em contato sobre o seu acesso beta.",
+        description: "Em breve entraremos em contato sobre seu acesso.",
       });
     }, 1500);
   };
@@ -32,8 +32,8 @@ const SignupForm = () => {
   return (
     <Card className="border border-mint-500/20 bg-dark-500/70 backdrop-blur-lg" id="signup-form">
       <CardHeader>
-        <CardTitle className="text-2xl">Garanta seu acesso beta</CardTitle>
-        <CardDescription>Vagas limitadas. Seja um dos primeiros a experimentar o GranaHub.</CardDescription>
+        <CardTitle className="text-2xl">Começar agora</CardTitle>
+        <CardDescription>Preencha seus dados para acessar o GranaHub.</CardDescription>
       </CardHeader>
       <CardContent>
         {success ? (
@@ -43,7 +43,7 @@ const SignupForm = () => {
             </div>
             <h3 className="text-xl font-medium mb-2">Obrigado pelo interesse!</h3>
             <p className="text-gray-400">
-              Seu acesso à versão beta será enviado em breve para {email}
+              Suas informações de acesso serão enviadas em breve para {email}
             </p>
           </div>
         ) : (
@@ -90,10 +90,11 @@ const SignupForm = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-mint-500 hover:bg-mint-600 mt-2"
+                className="w-full bg-mint-500 hover:bg-mint-600 mt-2 group transition-all duration-300 hover:shadow-lg hover:shadow-mint-500/20"
                 disabled={loading}
               >
-                {loading ? "Processando..." : "Quero participar do beta"}
+                {loading ? "Processando..." : "Começar agora"}
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
           </form>

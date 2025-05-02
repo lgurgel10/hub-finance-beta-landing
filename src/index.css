@@ -47,6 +47,10 @@
     @apply bg-dark-700 text-foreground antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer utilities {
@@ -63,5 +67,21 @@
     background-image: radial-gradient(at 40% 40%, rgba(74, 222, 128, 0.03) 0px, transparent 50%), 
                       radial-gradient(at 90% 10%, rgba(74, 222, 128, 0.02) 0px, transparent 50%), 
                       radial-gradient(at 50% 95%, rgba(74, 222, 128, 0.02) 0px, transparent 50%);
+  }
+  
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

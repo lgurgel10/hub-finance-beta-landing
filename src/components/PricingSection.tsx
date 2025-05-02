@@ -1,10 +1,34 @@
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 
 const PricingSection = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const section = sectionRef.current;
+    if (section) {
+      observer.observe(section);
+    }
+    
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
+
   const plans = [
     {
       name: "Solo",
@@ -19,7 +43,7 @@ const PricingSection = () => {
         "Suporte por e-mail"
       ],
       highlighted: false,
-      ctaText: "Começar teste grátis"
+      ctaText: "Assinar agora"
     },
     {
       name: "Pro",
@@ -38,7 +62,7 @@ const PricingSection = () => {
         "Workspaces ilimitados"
       ],
       highlighted: true,
-      ctaText: "Plano recomendado"
+      ctaText: "Assinar agora"
     },
     {
       name: "Growth",
@@ -53,19 +77,12 @@ const PricingSection = () => {
         "Controle avançado de permissões"
       ],
       highlighted: false,
-      ctaText: "Fale com nossa equipe"
+      ctaText: "Assinar agora"
     }
   ];
 
-  const scrollToForm = () => {
-    const form = document.getElementById('signup-form');
-    if (form) {
-      form.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="py-24 bg-dark-600" id="planos">
+    <div ref={sectionRef} className="py-24 bg-dark-600 opacity-0 transform translate-y-4 transition-all duration-700" id="planos">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -80,7 +97,7 @@ const PricingSection = () => {
           {plans.map((plan, index) => (
             <Card 
               key={index} 
-              className={`bg-dark-500/70 border ${plan.highlighted ? 'border-mint-500' : 'border-mint-500/10'} p-6 relative`}
+              className={`bg-dark-500/70 border ${plan.highlighted ? 'border-mint-500' : 'border-mint-500/10'} p-6 relative transform transition-all duration-300 hover:-translate-y-2`}
             >
               {plan.highlighted && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-mint-500 text-white px-4 py-1 rounded-full text-sm font-medium">
@@ -89,10 +106,11 @@ const PricingSection = () => {
               )}
               <div className={`${plan.highlighted ? 'pt-4' : ''}`}>
                 <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
-                <div className="flex items-baseline mb-4">
+                <div className="flex items-baseline mb-1">
                   <span className="text-3xl font-bold">{plan.price}</span>
                   <span className="text-gray-400 ml-1">/mês</span>
                 </div>
+                <p className="text-mint-400 text-sm mb-2 font-semibold">Preço por tempo limitado</p>
                 <p className="text-gray-400 text-sm mb-6">{plan.description}</p>
                 <div className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
@@ -103,10 +121,10 @@ const PricingSection = () => {
                   ))}
                 </div>
                 <Button 
-                  onClick={scrollToForm}
-                  className={`w-full ${plan.highlighted ? 'bg-mint-500 hover:bg-mint-600' : 'bg-dark-400 hover:bg-dark-300'}`}
+                  className={`w-full group transition-all duration-300 ${plan.highlighted ? 'bg-mint-500 hover:bg-mint-600 hover:shadow-lg hover:shadow-mint-500/20' : 'bg-dark-400 hover:bg-dark-300'}`}
                 >
                   {plan.ctaText}
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </Card>
