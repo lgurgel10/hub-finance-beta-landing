@@ -114,9 +114,13 @@ const FeatureShowcase = () => {
                 description: "Monitore todas as ações por usuário com histórico completo de alterações"
               }
             ]}
-            image={<div className="h-full w-full bg-dark-400 rounded-md flex items-center justify-center">
-              <p className="text-[oklch(69.6%_.17_162.48)]">Colaboração</p>
-            </div>}
+            image={
+              <img
+                src="/colaboracao.jpg"
+                alt="Colaboração"
+                className="h-full w-full object-cover rounded-md"
+              />
+            }
           />
         </div>
 
