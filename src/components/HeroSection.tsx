@@ -11,7 +11,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-dark-700">
+    <div className="relative min-h-screen flex items-center justify-center bg-dark-700">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl lg:text-6xl font-extrabold mb-6">
