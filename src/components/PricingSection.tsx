@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight } from 'lucide-react';
 
 const PricingSection = () => {
   const sectionRef = useRef(null);
+  const [isAnnual, setIsAnnual] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -31,7 +32,8 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Solo",
-      price: "R$ 19",
+      price: 19,
+      annualPrice: 15,
       description: "Ideal para profissionais autônomos e uso pessoal",
       features: [
         "1 workspace",
@@ -46,7 +48,8 @@ const PricingSection = () => {
     },
     {
       name: "Pro",
-      price: "R$ 80",
+      price: 80,
+      annualPrice: 64,
       description: "Perfeito para pequenas empresas e equipes",
       features: [
         "Tudo do Solo +",
@@ -65,7 +68,8 @@ const PricingSection = () => {
     },
     {
       name: "Growth",
-      price: "R$ 297",
+      price: 297,
+      annualPrice: 237,
       description: "Para empresas em crescimento que precisam de recursos avançados",
       features: [
         "Tudo do Pro +",
@@ -92,6 +96,21 @@ const PricingSection = () => {
           </p>
         </div>
 
+        <div className="flex items-center justify-center gap-4 mb-10">
+          <span className="font-medium text-white">Mensal</span>
+          <button
+            className={`relative w-9 h-5 flex items-center rounded-full transition-colors duration-300 focus:outline-none border border-mint-500/40 ${isAnnual ? 'bg-mint-500/30' : 'bg-gray-400/20'}`}
+            onClick={() => setIsAnnual((v) => !v)}
+            aria-label="Alternar plano mensal/anual"
+          >
+            <span
+              className={`absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform duration-300 border border-mint-500/30 ${isAnnual ? 'translate-x-4' : ''}`}
+            />
+          </button>
+          <span className="font-medium text-white">Anual</span>
+          <span className="text-xs text-mint-500 ml-2">(Economize 20%)</span>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <Card 
@@ -106,8 +125,8 @@ const PricingSection = () => {
               <div className={`${plan.highlighted ? 'pt-4' : ''}`}>
                 <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
                 <div className="flex items-baseline mb-1">
-                  <span className="text-3xl font-bold">{plan.price}</span>
-                  <span className="text-gray-400 ml-1">/mês</span>
+                  <span className="text-3xl font-bold">R${isAnnual ? plan.annualPrice : plan.price}</span>
+                  <span className="text-gray-400 ml-1">/mês{isAnnual && <span className="text-xs"> (cobrado anualmente)</span>}</span>
                 </div>
                 <p className="text-mint-400 text-sm mb-2 font-semibold">Preço por tempo limitado</p>
                 <p className="text-gray-400 text-sm mb-6">{plan.description}</p>
