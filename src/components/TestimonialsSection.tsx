@@ -80,7 +80,10 @@ const TestimonialsSection = () => {
 
         <div className="mt-12 flex justify-center">
           <Button 
-            onClick={scrollToPlans} 
+            onClick={() => {
+              const section = document.getElementById('planos');
+              if (section) section.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="bg-[oklch(.696_.17_162.48)] hover:bg-[oklch(59.6%_.145_163.225)] text-white group transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[oklch(.696_.17_162.48)]/20 px-6 py-6 text-lg"
           >
             Ver planos disponíveis

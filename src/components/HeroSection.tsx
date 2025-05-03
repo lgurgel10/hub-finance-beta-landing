@@ -22,7 +22,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button 
-              onClick={scrollToMore} 
+              onClick={() => window.open('https://tally.so/r/np56xB', '_blank')}
               className="bg-[oklch(.696_.17_162.48)] hover:bg-[oklch(59.6%_.145_163.225)] text-white group transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[oklch(.696_.17_162.48)]/20 px-6 py-6 text-lg"
             >
               Começar agora

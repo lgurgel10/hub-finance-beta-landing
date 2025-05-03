@@ -124,7 +124,7 @@ const FeatureShowcase = () => {
           />
         </div>
 
-        <FeatureCTA label="Quero utilizar" onClick={scrollToPlans} />
+        <FeatureCTA label="Quero utilizar" onClick={() => window.open('https://tally.so/r/np56xB', '_blank')} />
       </div>
     </div>
   );

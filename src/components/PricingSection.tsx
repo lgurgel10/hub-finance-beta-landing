@@ -121,6 +121,7 @@ const PricingSection = () => {
                 </div>
                 <Button 
                   className={`w-full group transition-all duration-300 ${plan.highlighted ? 'bg-mint-500 hover:bg-mint-600 hover:shadow-lg hover:shadow-mint-500/20' : 'bg-dark-400 hover:bg-dark-300'}`}
+                  onClick={() => window.open('https://tally.so/r/np56xB', '_blank')}
                 >
                   {plan.ctaText}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
