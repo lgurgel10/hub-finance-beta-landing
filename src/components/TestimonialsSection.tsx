@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 
 const TestimonialsSection = () => {
   const sectionRef = useRef(null);
@@ -63,19 +64,28 @@ const TestimonialsSection = () => {
           <p className="text-gray-300 max-w-2xl mx-auto">Veja como o GranaHub está ajudando pessoas reais a organizar, acompanhar e dominar sua vida financeira com clareza.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-dark-500/50 border border-mint-500/10 p-6 flex flex-col">
-              <div className="flex-grow">
-                <div className="mb-4 text-4xl text-mint-500/30">"</div>
-                <p className="italic text-gray-300 mb-6">{testimonial.quote}</p>
-              </div>
-              <div>
-                <p className="font-medium">{testimonial.author}</p>
-                <p className="text-sm text-gray-400">{testimonial.role}, {testimonial.company}</p>
-              </div>
-            </Card>
-          ))}
+        {/* Carrossel de depoimentos */}
+        <div className="max-w-3xl mx-auto">
+          <Carousel className="relative">
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="px-2">
+                  <Card className="bg-dark-500/50 border border-mint-500/10 p-6 flex flex-col h-full">
+                    <div className="flex-grow">
+                      <div className="mb-4 text-4xl text-mint-500/30">"</div>
+                      <p className="italic text-gray-300 mb-6">{testimonial.quote}</p>
+                    </div>
+                    <div>
+                      <p className="font-medium">{testimonial.author}</p>
+                      <p className="text-sm text-gray-400">{testimonial.role}, {testimonial.company}</p>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-dark-700/80 border-mint-500/20 text-mint-500 hover:bg-mint-500/10" />
+            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-dark-700/80 border-mint-500/20 text-mint-500 hover:bg-mint-500/10" />
+          </Carousel>
         </div>
 
         <div className="mt-12 flex justify-center">
