@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -73,6 +72,11 @@ const TestimonialsSection = () => {
     author: "Lucas Martins",
     role: "Analista Financeiro",
     company: "Martins Consultoria"
+  }, {
+    quote: "Com o GranaHub, finalmente consegui economizar e investir de forma inteligente. Super recomendo!",
+    author: "Beatriz Ramos",
+    role: "Investidora",
+    company: "BR Investimentos"
   }];
 
   return (
