@@ -65,12 +65,12 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Carrossel de depoimentos */}
-        <div className="max-w-3xl mx-auto flex flex-col items-center px-4">
+        <div className="max-w-3xl mx-auto flex flex-col items-center px-4 md:px-12">
           <Carousel className="w-full">
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="px-2">
-                  <Card className="bg-dark-500/50 border border-mint-500/10 border-[1px] p-6 flex flex-col h-full">
+                <CarouselItem key={index} className="mx-auto max-w-lg px-2">
+                  <Card className="bg-dark-500/50 border border-mint-500/10 border-[1px] rounded-lg p-6 flex flex-col h-full">
                     <div className="flex-grow">
                       <div className="mb-4 text-4xl text-mint-500/30">"</div>
                       <p className="italic text-gray-300 mb-6">{testimonial.quote}</p>
@@ -83,7 +83,7 @@ const TestimonialsSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2 mt-10">
               <CarouselPrevious className="static relative bg-dark-700 border border-mint-500/20 text-mint-500 hover:bg-mint-500/10 shadow rounded-full w-9 h-9 flex items-center justify-center" />
               <CarouselNext className="static relative bg-dark-700 border border-mint-500/20 text-mint-500 hover:bg-mint-500/10 shadow rounded-full w-9 h-9 flex items-center justify-center" />
             </div>
