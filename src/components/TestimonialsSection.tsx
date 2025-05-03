@@ -52,6 +52,26 @@ const TestimonialsSection = () => {
     author: "Rafael Costa",
     role: "CFO",
     company: "Startup Inova"
+  }, {
+    quote: "Nunca foi tão fácil acompanhar meus gastos e planejar o futuro. Recomendo para todos!",
+    author: "Fernanda Lima",
+    role: "Contadora",
+    company: "Lima Assessoria"
+  }, {
+    quote: "O suporte é excelente e a plataforma é muito intuitiva. Estou muito satisfeito!",
+    author: "João Pedro Souza",
+    role: "Pequeno Empresário",
+    company: "JP Soluções"
+  }, {
+    quote: "Consigo controlar as finanças da minha família e do meu negócio em um só lugar. Simplesmente perfeito!",
+    author: "Patrícia Oliveira",
+    role: "Empreendedora",
+    company: "Oliveira Doces"
+  }, {
+    quote: "A integração com bancos e cartões facilitou demais minha rotina. GranaHub é indispensável!",
+    author: "Lucas Martins",
+    role: "Analista Financeiro",
+    company: "Martins Consultoria"
   }];
 
   return (
