@@ -115,10 +115,10 @@ const PricingSection = () => {
           {plans.map((plan, index) => (
             <Card 
               key={index} 
-              className={`bg-dark-500/70 border ${plan.highlighted ? 'border-mint-500' : 'border-mint-500/10'} p-6 relative transform transition-all duration-300 hover:-translate-y-2`}
+              className={`bg-dark-500/70 border ${plan.highlighted ? 'border-[oklch(69.6%_.17_162.48)]' : 'border-[oklch(69.6%_.17_162.48)]/10'} p-6 relative transform transition-all duration-300 hover:-translate-y-2`}
             >
               {plan.highlighted && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-mint-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[oklch(69.6%_.17_162.48)] text-white px-4 py-1 rounded-full text-sm font-medium">
                   Mais popular
                 </div>
               )}
@@ -128,18 +128,18 @@ const PricingSection = () => {
                   <span className="text-3xl font-bold">R${isAnnual ? plan.annualPrice : plan.price}</span>
                   <span className="text-gray-400 ml-1">/mês{isAnnual && <span className="text-xs"> (cobrado anualmente)</span>}</span>
                 </div>
-                <p className="text-mint-400 text-sm mb-2 font-semibold">Preço por tempo limitado</p>
+                <p className="text-[oklch(69.6%_.17_162.48)] text-sm mb-2 font-semibold">Preço por tempo limitado</p>
                 <p className="text-gray-400 text-sm mb-6">{plan.description}</p>
                 <div className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
                     <div key={i} className="flex items-start">
-                      <Check className="h-5 w-5 text-mint-500 mr-2 shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-[oklch(69.6%_.17_162.48)] mr-2 shrink-0 mt-0.5" />
                       <span className="text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
                 <Button 
-                  className={`w-full group transition-all duration-300 ${plan.highlighted ? 'bg-mint-500 hover:bg-mint-600 hover:shadow-lg hover:shadow-mint-500/20' : 'bg-dark-400 hover:bg-dark-300'}`}
+                  className={`w-full group transition-all duration-300 ${plan.highlighted ? 'bg-[oklch(69.6%_.17_162.48)] hover:bg-[oklch(59.6%_.145_163.225)] hover:shadow-lg hover:shadow-[oklch(69.6%_.17_162.48)]/20' : 'bg-dark-400 hover:bg-dark-300'}`}
                   onClick={() => window.open('https://tally.so/r/np56xB', '_blank')}
                 >
                   {plan.ctaText}
