@@ -21,6 +21,9 @@ const Header = () => {
             <a href="#faq" className="text-gray-300 hover:text-mint-400 transition-colors">
               FAQ
             </a>
+            <a href="https://tally.so/r/np56xB" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-mint-400 transition-colors">
+              Contato
+            </a>
           </nav>
           <button 
             className="md:hidden text-gray-300 hover:text-mint-400 transition-colors"
@@ -54,6 +57,15 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQ
+              </a>
+              <a 
+                href="https://tally.so/r/np56xB" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-300 hover:text-mint-400 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contato
               </a>
             </div>
           </div>
