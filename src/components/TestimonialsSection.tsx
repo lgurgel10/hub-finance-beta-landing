@@ -65,7 +65,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Carrossel de depoimentos */}
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto relative px-8">
           <Carousel className="relative">
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
@@ -83,8 +83,8 @@ const TestimonialsSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-dark-700/80 border-mint-500/20 text-mint-500 hover:bg-mint-500/10" />
-            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-dark-700/80 border-mint-500/20 text-mint-500 hover:bg-mint-500/10" />
+            <CarouselPrevious className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 bg-dark-700/80 border-mint-500/20 text-mint-500 hover:bg-mint-500/10" />
+            <CarouselNext className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-dark-700/80 border-mint-500/20 text-mint-500 hover:bg-mint-500/10" />
           </Carousel>
         </div>
 
