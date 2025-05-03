@@ -65,12 +65,12 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Carrossel de depoimentos */}
-        <div className="max-w-3xl mx-auto relative px-8">
-          <Carousel className="relative">
+        <div className="max-w-3xl mx-auto flex flex-col items-center px-4">
+          <Carousel className="w-full">
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="px-2">
-                  <Card className="bg-dark-500/50 border border-mint-500/10 p-6 flex flex-col h-full">
+                  <Card className="bg-dark-500/50 border border-mint-500/10 border-[1px] p-6 flex flex-col h-full">
                     <div className="flex-grow">
                       <div className="mb-4 text-4xl text-mint-500/30">"</div>
                       <p className="italic text-gray-300 mb-6">{testimonial.quote}</p>
@@ -83,8 +83,10 @@ const TestimonialsSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 bg-dark-700/80 border-mint-500/20 text-mint-500 hover:bg-mint-500/10" />
-            <CarouselNext className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-dark-700/80 border-mint-500/20 text-mint-500 hover:bg-mint-500/10" />
+            <div className="flex justify-center gap-2 mt-6">
+              <CarouselPrevious className="static relative bg-dark-700 border border-mint-500/20 text-mint-500 hover:bg-mint-500/10 shadow rounded-full w-9 h-9 flex items-center justify-center" />
+              <CarouselNext className="static relative bg-dark-700 border border-mint-500/20 text-mint-500 hover:bg-mint-500/10 shadow rounded-full w-9 h-9 flex items-center justify-center" />
+            </div>
           </Carousel>
         </div>
 
