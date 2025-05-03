@@ -36,10 +36,12 @@
     --radius: 0.5rem;
     
     /* Nova paleta sofisticada */
-    --color-green-500: oklch(72.3% .219 149.579);
+    --mint: #19E6B3;
+    --color-green-500: #19E6B3;
     --color-emerald-500: oklch(69.6% .17 162.48);
     --color-emerald-600: oklch(59.6% .145 163.225);
     --color-emerald-700: oklch(50.8% .118 165.612);
+    --color-teal-700: oklch(51.1% .096 186.391);
   }
 }
 
@@ -60,18 +62,18 @@
 
 @layer utilities {
   .glow {
-    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5), 
-                0 0 20px rgba(74, 222, 128, 0.2);
+    box-shadow: 0 0 10px rgba(25, 230, 179, 0.5), 
+                0 0 20px rgba(25, 230, 179, 0.2);
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-[oklch(72.3%_.219_149.579)] to-[oklch(69.6%_.17_162.48)] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[oklch(69.6%_.17_162.48)] via-[oklch(59.6%_.145_163.225)] to-[oklch(51.1%_.096_186.391)] bg-clip-text text-transparent;
   }
   
   .bg-mesh {
-    background-image: radial-gradient(at 40% 40%, rgba(74, 222, 128, 0.03) 0px, transparent 50%), 
-                      radial-gradient(at 90% 10%, rgba(74, 222, 128, 0.02) 0px, transparent 50%), 
-                      radial-gradient(at 50% 95%, rgba(74, 222, 128, 0.02) 0px, transparent 50%);
+    background-image: radial-gradient(at 40% 40%, rgba(25, 230, 179, 0.03) 0px, transparent 50%), 
+                      radial-gradient(at 90% 10%, rgba(25, 230, 179, 0.02) 0px, transparent 50%), 
+                      radial-gradient(at 50% 95%, rgba(25, 230, 179, 0.02) 0px, transparent 50%);
   }
   
   /* Animation classes */

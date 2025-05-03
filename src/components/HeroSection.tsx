@@ -15,7 +15,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl lg:text-6xl font-extrabold mb-6">
-            <span className="bg-gradient-to-r from-[oklch(72.3%_.219_149.579)] to-[oklch(69.6%_.17_162.48)] bg-clip-text text-transparent">Transforme</span> como você organiza sua grana
+            <span className="text-gradient">Transforme</span> como você organiza sua grana
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Gerencie transações, acompanhe assinaturas e integre serviços de pagamento em um único lugar.
