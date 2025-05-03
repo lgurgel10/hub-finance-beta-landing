@@ -40,8 +40,8 @@ const Index = () => {
         <HeroSection />
         <BenefitsSection />
         <FeatureShowcase />
-        <TestimonialsSection />
         <PricingSection />
+        <TestimonialsSection />
         <FaqSection />
         {/* O SignupForm está oculto aqui mas acessível via ID para scrolling */}
         <div className="hidden">
