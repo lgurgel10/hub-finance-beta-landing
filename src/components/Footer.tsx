@@ -38,13 +38,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-mint-500/10 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm text-gray-500 text-left w-full md:w-auto">
-            &copy; {new Date().getFullYear()} GranaHub. Todos os direitos reservados.
-          </p>
-          <div className="flex space-x-6">
-            <a href="#" className="text-sm text-gray-500 hover:text-mint-400">Termos de Serviço</a>
-            <a href="#" className="text-sm text-gray-500 hover:text-mint-400">Política de Privacidade</a>
+        <div className="border-t border-mint-500/10 pt-8 flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
+          <div className="w-full md:w-auto flex flex-col md:flex-row md:items-center md:space-x-6">
+            <p className="text-sm text-gray-500 text-left mb-4 md:mb-0">
+              &copy; {new Date().getFullYear()} GranaHub. Todos os direitos reservados.
+            </p>
+            <div className="flex flex-col md:flex-row md:space-x-6 space-y-3 md:space-y-0">
+              <a href="#" className="text-sm text-gray-500 hover:text-mint-400">Termos de Serviço</a>
+              <a href="#" className="text-sm text-gray-500 hover:text-mint-400">Política de Privacidade</a>
+            </div>
           </div>
         </div>
       </div>
