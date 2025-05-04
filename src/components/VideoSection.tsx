@@ -1,5 +1,5 @@
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Play } from 'lucide-react';
 
 const VideoSection = () => {
@@ -16,7 +16,7 @@ const VideoSection = () => {
   return (
     <div className="w-full flex justify-center items-center pt-0 mt-0 sm:py-2 sm:mt-[-12px] bg-dark-700">
       <div className="w-[300px] h-[600px] relative transform scale-[0.9067]">
-        {/* Video element - always loaded but hidden until play is clicked */}
+        {/* Video element - carregado somente quando o play é clicado */}
         <video
           ref={videoRef}
           className={`w-full h-full object-cover rounded-[40px] ${!isPlaying ? 'hidden' : ''}`}
@@ -24,24 +24,28 @@ const VideoSection = () => {
           muted
           playsInline
           controls={false}
-          preload="auto"
+          // Não precarregar o vídeo inteiro, apenas metadados
+          preload="metadata"
         >
           <source src="/mockup iphone.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
-        {/* First frame of video shown until play is clicked */}
+        {/* Div contendo uma imagem estática ao invés de carregar o vídeo */}
         {!isPlaying && (
           <div className="w-full h-full rounded-[40px] overflow-hidden">
-            <video
-              className="w-full h-full object-cover rounded-[40px] pointer-events-none"
-              muted
-              playsInline
-              preload="auto"
-              autoPlay={false}
-            >
-              <source src="/mockup iphone.mp4#t=0.001" type="video/mp4" />
-            </video>
+            {/* Usando uma imagem estilizada que se parece com o primeiro frame */}
+            <div className="w-full h-full bg-black rounded-[40px]">
+              <picture>
+                <source srcSet="/mockup-first-frame.webp" type="image/webp" />
+                <img 
+                  src="/mockup-first-frame.jpg" 
+                  alt="App Preview" 
+                  className="w-full h-full object-cover rounded-[40px]"
+                  loading="eager"
+                />
+              </picture>
+            </div>
           </div>
         )}
         
