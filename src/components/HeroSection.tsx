@@ -12,7 +12,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative min-h-[100dvh] flex items-center justify-center bg-dark-700 py-16">
+    <div className="relative min-h-[100dvh] flex items-center justify-center bg-dark-700 py-16 mt-6 sm:mt-10">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl lg:text-6xl font-extrabold mb-6">
