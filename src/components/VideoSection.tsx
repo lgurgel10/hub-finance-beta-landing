@@ -1,10 +1,11 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Play } from 'lucide-react';
 
 const VideoSection = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const handlePlay = () => {
     if (videoRef.current) {
@@ -13,41 +14,40 @@ const VideoSection = () => {
     }
   };
 
+  const handleVideoLoaded = () => {
+    setIsVideoLoaded(true);
+  };
+
   return (
     <div className="w-full flex justify-center items-center pt-0 mt-0 sm:py-2 sm:mt-[-12px] bg-dark-700">
       <div className="w-[300px] h-[600px] relative transform scale-[0.9067]">
-        {/* Video element - carregado somente quando o play é clicado */}
+        {/* Video element - hidden until play is clicked */}
         <video
           ref={videoRef}
           className={`w-full h-full object-cover rounded-[40px] ${!isPlaying ? 'hidden' : ''}`}
+          onLoadedData={handleVideoLoaded}
           loop
           muted
           playsInline
           controls={false}
-          // Não precarregar o vídeo inteiro, apenas metadados
           preload="metadata"
         >
           <source src="/mockup iphone.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
-        {/* Div contendo uma imagem estática ao invés de carregar o vídeo */}
-        {!isPlaying && (
-          <div className="w-full h-full rounded-[40px] overflow-hidden">
-            {/* Usando uma imagem estilizada que se parece com o primeiro frame */}
-            <div className="w-full h-full bg-black rounded-[40px]">
-              <picture>
-                <source srcSet="/mockup-first-frame.webp" type="image/webp" />
-                <img 
-                  src="/mockup-first-frame.jpg" 
-                  alt="App Preview" 
-                  className="w-full h-full object-cover rounded-[40px]"
-                  loading="eager"
-                />
-              </picture>
+        {/* Static mockup image shown until play is clicked */}
+        <div className={`w-full h-full bg-black rounded-[40px] flex items-center justify-center ${isPlaying ? 'hidden' : ''}`}>
+          {/* Use a div with device frame styling */}
+          <div className="w-full h-full rounded-[40px] bg-gray-900 border-8 border-gray-800 relative overflow-hidden">
+            {/* Mock screen content - can be customized */}
+            <div className="w-full h-full bg-gradient-to-b from-[#121212] to-[#1a1a1a] flex flex-col items-center justify-center p-6">
+              <div className="w-16 h-16 mb-6 bg-[oklch(69.6%_.17_162.48)] rounded-full animate-pulse-slow"></div>
+              <div className="w-3/4 h-3 bg-gray-700 rounded-full mb-3"></div>
+              <div className="w-1/2 h-3 bg-gray-700 rounded-full"></div>
             </div>
           </div>
-        )}
+        </div>
         
         {/* Play button overlay visible on both mobile and desktop until played */}
         {!isPlaying && (
