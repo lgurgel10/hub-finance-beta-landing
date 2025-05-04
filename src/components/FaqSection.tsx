@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react';
 import {
   Accordion,
@@ -60,9 +61,9 @@ const FaqSection = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="py-24 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700" id="faq">
+    <div ref={sectionRef} className="py-12 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700" id="faq">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Perguntas <span className="text-gradient">Frequentes</span>
           </h2>

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { PieChart, BarChart, ListCheck, ArrowRight } from 'lucide-react';
@@ -54,9 +55,9 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="py-20 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700">
+    <div ref={sectionRef} className="py-12 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Simplifique sua <span className="text-gradient whitespace-nowrap">gestão financeira</span>
           </h2>
@@ -65,7 +66,7 @@ const BenefitsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {benefits.map((benefit, index) => (
             <Card 
               key={index} 

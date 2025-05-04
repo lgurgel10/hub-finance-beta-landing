@@ -1,17 +1,9 @@
+
 import React, { useRef, useState, useEffect } from 'react';
 
 const VideoSection = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    // Detect desktop
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
-  }, []);
 
   const handlePlay = () => {
     if (videoRef.current) {
@@ -26,7 +18,7 @@ const VideoSection = () => {
         <video
           ref={videoRef}
           className="w-full h-full object-cover rounded-[40px]"
-          autoPlay={!isDesktop}
+          autoPlay={false}
           loop
           muted
           playsInline
@@ -35,11 +27,11 @@ const VideoSection = () => {
           <source src="/mockup iphone.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        {/* Play button overlay only on desktop and when not playing */}
-        {isDesktop && !isPlaying && (
+        {/* Play button overlay for both mobile and desktop */}
+        {!isPlaying && (
           <button
             onClick={handlePlay}
-            className="hidden lg:flex absolute inset-0 items-center justify-center"
+            className="absolute inset-0 flex items-center justify-center"
             style={{ pointerEvents: 'auto', background: 'none' }}
             aria-label="Play video"
           >

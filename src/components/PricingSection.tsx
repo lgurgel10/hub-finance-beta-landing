@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -85,9 +86,9 @@ const PricingSection = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="py-24 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700" id="planos">
+    <div ref={sectionRef} className="py-12 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700" id="planos">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Planos para todas as <span className="text-gradient">necessidades</span>
           </h2>
