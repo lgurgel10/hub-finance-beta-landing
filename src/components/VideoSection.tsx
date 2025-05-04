@@ -1,9 +1,11 @@
 
 import React, { useRef, useState, useEffect } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const VideoSection = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const isMobile = useIsMobile();
 
   const handlePlay = () => {
     if (videoRef.current) {
@@ -11,6 +13,19 @@ const VideoSection = () => {
       setIsPlaying(true);
     }
   };
+
+  useEffect(() => {
+    // For mobile, make sure to load the first frame
+    if (videoRef.current) {
+      // This forces the video to load and display its first frame
+      videoRef.current.load();
+      
+      // Add poster attribute dynamically after the component mounts
+      if (isMobile) {
+        videoRef.current.currentTime = 0.1;
+      }
+    }
+  }, [isMobile]);
 
   return (
     <div className="w-full flex justify-center items-center pt-0 mt-0 sm:py-2 sm:mt-[-12px] bg-dark-700">
@@ -23,6 +38,7 @@ const VideoSection = () => {
           muted
           playsInline
           controls={false}
+          preload="auto"
         >
           <source src="/mockup iphone.mp4" type="video/mp4" />
           Your browser does not support the video tag.
