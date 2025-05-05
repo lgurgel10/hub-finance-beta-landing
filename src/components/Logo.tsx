@@ -3,14 +3,12 @@ import React from 'react';
 
 const Logo = () => {
   return (
-    <div className="flex items-center space-x-2">
-      <div className="relative">
-        <div className="h-8 w-8 bg-gradient-to-br from-mint-400 to-mint-600 rounded-md flex items-center justify-center">
-          <span className="text-white font-bold text-xl">G</span>
-        </div>
-        <div className="absolute -top-1 -right-1 h-2 w-2 bg-mint-400 rounded-full glow"></div>
-      </div>
-      <span className="font-bold text-xl text-white">GranaHub</span>
+    <div className="flex items-center">
+      <img 
+        src="/lovable-uploads/9df08ef9-d60f-444b-ac5d-22f58db91e89.png" 
+        alt="GranaHub Logo" 
+        className="h-8" 
+      />
     </div>
   );
 };
