@@ -1,10 +1,14 @@
+
 import React, { useState } from 'react';
 import Logo from './Logo';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  return <header className="fixed top-0 w-full z-50 backdrop-blur-sm bg-dark-700/80 border-b border-mint-500/10">
+
+  return (
+    <header className="fixed top-0 w-full z-50 backdrop-blur-sm bg-dark-700/80">
       <div className="container mx-auto px-[49px] py-[29px]">
         <div className="flex items-center justify-between">
           <Logo />
@@ -28,7 +32,8 @@ const Header = () => {
         </div>
 
         {/* Menu Mobile */}
-        {isMenuOpen && <div className="md:hidden mt-4 py-4 border-t border-mint-500/10">
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 py-4 border-t border-mint-500/10">
             <div className="flex flex-col space-y-4">
               <a href="#funcionalidades" className="text-gray-300 hover:text-mint-400 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Funcionalidades
@@ -43,8 +48,11 @@ const Header = () => {
                 Contato
               </a>
             </div>
-          </div>}
+          </div>
+        )}
       </div>
-    </header>;
+    </header>
+  );
 };
+
 export default Header;
