@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -32,7 +33,7 @@ const CtaSection = () => {
   };
 
   return (
-    <div ref={sectionRef} className="py-20 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700">
+    <div ref={sectionRef} className="py-12 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <span className="text-mint-400 font-semibold mb-2 block">Comece Agora</span>

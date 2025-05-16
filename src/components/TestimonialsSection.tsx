@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -80,9 +81,9 @@ const TestimonialsSection = () => {
   }];
 
   return (
-    <div ref={sectionRef} className="py-20 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700">
+    <div ref={sectionRef} className="py-12 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Clientes que <span className="text-gradient">mudaram</span> suas vidas ao organizar suas finanças
           </h2>

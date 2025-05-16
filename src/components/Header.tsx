@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Logo from './Logo';
 import { Button } from '@/components/ui/button';
@@ -7,8 +8,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 w-full z-50 backdrop-blur-sm bg-dark-700/80 border-b border-mint-500/10">
-      <div className="container mx-auto px-4 py-4">
+    <header className="fixed top-0 w-full z-50 backdrop-blur-sm bg-dark-700/80">
+      <div className="container mx-auto px-[49px] py-[29px]">
         <div className="flex items-center justify-between">
           <Logo />
           <nav className="hidden md:flex items-center justify-center space-x-12 absolute left-1/2 transform -translate-x-1/2">
@@ -25,10 +26,7 @@ const Header = () => {
               Contato
             </a>
           </nav>
-          <button 
-            className="md:hidden text-gray-300 hover:text-mint-400 transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="md:hidden text-gray-300 hover:text-mint-400 transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -37,34 +35,16 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 py-4 border-t border-mint-500/10">
             <div className="flex flex-col space-y-4">
-              <a 
-                href="#funcionalidades" 
-                className="text-gray-300 hover:text-mint-400 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <a href="#funcionalidades" className="text-gray-300 hover:text-mint-400 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Funcionalidades
               </a>
-              <a 
-                href="#planos" 
-                className="text-gray-300 hover:text-mint-400 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <a href="#planos" className="text-gray-300 hover:text-mint-400 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Planos
               </a>
-              <a 
-                href="#faq" 
-                className="text-gray-300 hover:text-mint-400 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <a href="#faq" className="text-gray-300 hover:text-mint-400 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 FAQ
               </a>
-              <a 
-                href="https://tally.so/r/np56xB" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-300 hover:text-mint-400 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <a href="https://tally.so/r/np56xB" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-mint-400 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Contato
               </a>
             </div>

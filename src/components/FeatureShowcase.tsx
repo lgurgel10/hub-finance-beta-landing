@@ -44,7 +44,7 @@ const FeatureShowcase = () => {
   return (
     <div 
       ref={sectionRef} 
-      className="py-24 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700" 
+      className="py-12 bg-dark-700 opacity-0 transform translate-y-4 transition-all duration-700" 
       id="funcionalidades"
     >
       <div className="container mx-auto px-4">
@@ -54,7 +54,7 @@ const FeatureShowcase = () => {
           highlightedWord="poderosas"
         />
 
-        <div className="space-y-24 max-w-5xl mx-auto">
+        <div className="space-y-16 max-w-5xl mx-auto">
           <FeatureCard 
             title="Dashboard personalizado para suas necessidades"
             points={[
