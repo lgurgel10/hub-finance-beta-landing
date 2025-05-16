@@ -1,5 +1,6 @@
 
 import React, { useRef, useEffect } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface FeaturePointProps {
   title: string;
@@ -29,6 +30,7 @@ const FeaturePoint = ({ title, description }: FeaturePointProps) => {
 
 const FeatureCard = ({ title, points, image, imagePosition = 'right' }: FeatureCardProps) => {
   const featureRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -58,6 +60,19 @@ const FeatureCard = ({ title, points, image, imagePosition = 'right' }: FeatureC
     };
   }, []);
 
+  // Ensure all videos autoplay without controls
+  useEffect(() => {
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+      video.controls = false;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.playsInline = true;
+      video.play().catch(e => console.log('Video play error:', e));
+    });
+  }, []);
+
   const Content = () => (
     <div>
       <h3 className="text-2xl font-bold mb-4">{title}</h3>
@@ -69,11 +84,31 @@ const FeatureCard = ({ title, points, image, imagePosition = 'right' }: FeatureC
     </div>
   );
 
-  const Image = () => (
-    <div className="flex items-center justify-center w-full h-full">
-      {image}
-    </div>
-  );
+  const Image = () => {
+    // Apply special handling for video elements
+    if (React.isValidElement(image) && image.type === 'video') {
+      return (
+        <div className="flex items-center justify-center w-full h-full">
+          {React.cloneElement(image, {
+            autoPlay: true,
+            loop: true,
+            muted: true,
+            playsInline: true,
+            controls: false,
+            style: { pointerEvents: 'none' },
+            className: "h-full w-full object-cover rounded-2xl shadow-lg"
+          })}
+        </div>
+      );
+    }
+    
+    // Default rendering for non-video elements
+    return (
+      <div className="flex items-center justify-center w-full h-full">
+        {image}
+      </div>
+    );
+  };
 
   return (
     <div

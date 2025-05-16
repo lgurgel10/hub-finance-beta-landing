@@ -35,6 +35,21 @@ const FeatureShowcase = () => {
     };
   }, []);
 
+  // Force videos to play automatically without controls
+  useEffect(() => {
+    const forcePlayVideos = () => {
+      const videos = document.querySelectorAll('video');
+      videos.forEach(video => {
+        video.controls = false;
+        video.play().catch(e => console.log('Auto-play error:', e));
+      });
+    };
+    
+    forcePlayVideos();
+    // Also try after a short delay to ensure videos load
+    setTimeout(forcePlayVideos, 1000);
+  }, []);
+
   const scrollToPlans = () => {
     const section = document.getElementById('planos');
     if (section) {
