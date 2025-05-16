@@ -71,9 +71,14 @@ const FeatureShowcase = () => {
                 description: "Defina objetivos financeiros e acompanhe seu progresso de forma visual"
               }
             ]}
-            image={<div className="h-full w-full bg-dark-400 rounded-md flex items-center justify-center">
-              <p className="text-[oklch(69.6%_.17_162.48)]">Dashboard</p>
-            </div>}
+            image={<video 
+              src="/grafico1.webm" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="h-full w-full object-cover rounded-2xl shadow-lg"
+            />}
           />
 
           <FeatureCard 
@@ -92,9 +97,14 @@ const FeatureShowcase = () => {
                 description: "Analise seus gastos recorrentes por categoria, identificando oportunidades de economia"
               }
             ]}
-            image={<div className="h-full w-full bg-dark-400 rounded-md flex items-center justify-center">
-              <p className="text-[oklch(69.6%_.17_162.48)]">Gestão de Assinaturas</p>
-            </div>}
+            image={<video 
+              src="/grafico2.webm" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="h-full w-full object-cover rounded-2xl shadow-lg"
+            />}
             imagePosition="left"
           />
 
@@ -118,7 +128,7 @@ const FeatureShowcase = () => {
               <img
                 src="/colaboracao.jpg"
                 alt="Colaboração"
-                className="h-full w-full object-cover rounded-md"
+                className="h-full w-full object-cover rounded-2xl shadow-lg"
               />
             }
           />
