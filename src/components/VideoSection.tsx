@@ -28,11 +28,13 @@ const VideoSection = () => {
 
   return (
     <div className="w-full flex justify-center items-center pt-0 mt-0 sm:py-2 sm:mt-[-12px] bg-dark-700">
-      <img
-        src="/mockup iphone.gif"
-        alt="Mockup iPhone animado"
-        className="w-full h-full object-cover rounded-[40px]"
-      />
+      <div className="w-[300px] h-[600px] relative transform scale-[0.9067]">
+        <img
+          src="/mockup iphone.gif"
+          alt="Mockup iPhone animado"
+          className="w-full h-full object-cover rounded-[40px]"
+        />
+      </div>
     </div>
   );
 };
