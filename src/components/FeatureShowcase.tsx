@@ -77,6 +77,7 @@ const FeatureShowcase = () => {
               muted 
               playsInline 
               className="h-full w-full object-cover rounded-2xl shadow-lg"
+              style={{ pointerEvents: 'none' }}
             >
               <source src="/grafico1.webm" type="video/webm" />
               <source src="/grafico1.mp4" type="video/mp4" />
@@ -106,6 +107,7 @@ const FeatureShowcase = () => {
               muted 
               playsInline 
               className="h-full w-full object-cover rounded-2xl shadow-lg"
+              style={{ pointerEvents: 'none' }}
             >
               <source src="/grafico2.webm" type="video/webm" />
               <source src="/grafico2.mp4" type="video/mp4" />
