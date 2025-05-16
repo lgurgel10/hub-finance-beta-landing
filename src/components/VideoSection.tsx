@@ -28,11 +28,12 @@ const VideoSection = () => {
 
   return (
     <div className="w-full flex justify-center items-center pt-0 mt-0 sm:py-2 sm:mt-[-12px] bg-dark-700">
-      <div className="w-[300px] h-[600px] relative transform scale-[0.9067]">
+      <div className="w-[300px] h-[600px] relative transform scale-[0.9067] bg-dark-700 rounded-[40px] flex items-center justify-center">
         <img
           src="/mockup iphone.gif"
           alt="Mockup iPhone animado"
           className="w-full h-full object-cover rounded-[40px]"
+          style={{ backgroundColor: 'transparent' }}
         />
       </div>
     </div>
