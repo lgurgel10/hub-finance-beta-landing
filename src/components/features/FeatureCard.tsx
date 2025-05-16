@@ -87,17 +87,20 @@ const FeatureCard = ({ title, points, image, imagePosition = 'right' }: FeatureC
   const Image = () => {
     // Apply special handling for video elements
     if (React.isValidElement(image) && image.type === 'video') {
+      // Type assertion to inform TypeScript that we're dealing with a video element
+      const videoProps = {
+        autoPlay: true,
+        loop: true,
+        muted: true,
+        playsInline: true,
+        controls: false,
+        style: { pointerEvents: 'none' as const },
+        className: "h-full w-full object-cover rounded-2xl shadow-lg"
+      };
+      
       return (
         <div className="flex items-center justify-center w-full h-full">
-          {React.cloneElement(image, {
-            autoPlay: true,
-            loop: true,
-            muted: true,
-            playsInline: true,
-            controls: false,
-            style: { pointerEvents: 'none' },
-            className: "h-full w-full object-cover rounded-2xl shadow-lg"
-          })}
+          {React.cloneElement(image, videoProps)}
         </div>
       );
     }
