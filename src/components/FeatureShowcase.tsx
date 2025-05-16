@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react';
 import FeatureCard from './features/FeatureCard';
 import FeatureSectionHeader from './features/FeatureSectionHeader';
@@ -76,6 +77,7 @@ const FeatureShowcase = () => {
               loop 
               muted 
               playsInline 
+              controls={false}
               className="h-full w-full object-cover rounded-2xl shadow-lg"
               style={{ pointerEvents: 'none' }}
             >
@@ -106,6 +108,7 @@ const FeatureShowcase = () => {
               loop 
               muted 
               playsInline 
+              controls={false}
               className="h-full w-full object-cover rounded-2xl shadow-lg"
               style={{ pointerEvents: 'none' }}
             >
