@@ -87,8 +87,8 @@ const FeatureShowcase = () => {
               }
             ]}
             image={<img 
-              src="/grafico1.gif"
-              alt="Animação do gráfico 1"
+              src="/grafico2.gif"
+              alt="Animação do gráfico 2"
               className="h-full w-full object-cover rounded-2xl shadow-lg"
             />}
           />
@@ -110,8 +110,8 @@ const FeatureShowcase = () => {
               }
             ]}
             image={<img 
-              src="/grafico2.gif"
-              alt="Animação do gráfico 2"
+              src="/grafico1.gif"
+              alt="Animação do gráfico 1"
               className="h-full w-full object-cover rounded-2xl shadow-lg"
             />}
             imagePosition="left"
