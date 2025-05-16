@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 import FeatureCard from './features/FeatureCard';
 import FeatureSectionHeader from './features/FeatureSectionHeader';
@@ -87,19 +86,11 @@ const FeatureShowcase = () => {
                 description: "Defina objetivos financeiros e acompanhe seu progresso de forma visual"
               }
             ]}
-            image={<video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              controls={false}
+            image={<img 
+              src="/grafico1.gif"
+              alt="Animação do gráfico 1"
               className="h-full w-full object-cover rounded-2xl shadow-lg"
-              style={{ pointerEvents: 'none' }}
-            >
-              <source src="/grafico1.webm" type="video/webm" />
-              <source src="/grafico1.mp4" type="video/mp4" />
-              Seu navegador não suporta vídeo.
-            </video>}
+            />}
           />
 
           <FeatureCard 
@@ -118,19 +109,11 @@ const FeatureShowcase = () => {
                 description: "Analise seus gastos recorrentes por categoria, identificando oportunidades de economia"
               }
             ]}
-            image={<video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              controls={false}
+            image={<img 
+              src="/grafico2.gif"
+              alt="Animação do gráfico 2"
               className="h-full w-full object-cover rounded-2xl shadow-lg"
-              style={{ pointerEvents: 'none' }}
-            >
-              <source src="/grafico2.webm" type="video/webm" />
-              <source src="/grafico2.mp4" type="video/mp4" />
-              Seu navegador não suporta vídeo.
-            </video>}
+            />}
             imagePosition="left"
           />
 
