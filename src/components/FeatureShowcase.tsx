@@ -72,13 +72,16 @@ const FeatureShowcase = () => {
               }
             ]}
             image={<video 
-              src="/grafico1.webm" 
               autoPlay 
               loop 
               muted 
               playsInline 
               className="h-full w-full object-cover rounded-2xl shadow-lg"
-            />}
+            >
+              <source src="/grafico1.webm" type="video/webm" />
+              <source src="/grafico1.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeo.
+            </video>}
           />
 
           <FeatureCard 
@@ -98,13 +101,16 @@ const FeatureShowcase = () => {
               }
             ]}
             image={<video 
-              src="/grafico2.webm" 
               autoPlay 
               loop 
               muted 
               playsInline 
               className="h-full w-full object-cover rounded-2xl shadow-lg"
-            />}
+            >
+              <source src="/grafico2.webm" type="video/webm" />
+              <source src="/grafico2.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeo.
+            </video>}
             imagePosition="left"
           />
 
